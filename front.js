@@ -2,26 +2,26 @@ let lista = new Array(8);
 let x = null;
 
 function armazenarNumeros() {
-    const n1 = parseInt(Document.querySelector('#numero1'));
-    const n2 = parseInt(Document.querySelector('#numero2'));
-    const n3 = parseInt(Document.querySelector('#numero3'));
-    const n4 = parseInt(Document.querySelector('#numero4'));
-    const n5 = parseInt(Document.querySelector('#numero5'));
-    const n6 = parseInt(Document.querySelector('#numero6'));
-    const n7 = parseInt(Document.querySelector('#numero7'));
-    const n8 = parseInt(Document.querySelector('#numero8'));
+    const n1 = parseInt((document.querySelector('#n1')).value);
+    const n2 = parseInt((document.querySelector('#n2')).value);
+    const n3 = parseInt((document.querySelector('#n3')).value);
+    const n4 = parseInt((document.querySelector('#n4')).value);
+    const n5 = parseInt((document.querySelector('#n5')).value);
+    const n6 = parseInt((document.querySelector('#n6')).value);
+    const n7 = parseInt((document.querySelector('#n7')).value);
+    const n8 = parseInt((document.querySelector('#n8')).value);
 
     if(n1 && n2 && n3 && n4 && n5 && n6 && n7 && n8){
         lista.push([n1, n2, n3, n4, n5, n6, n7, n8]);
         lista.sort((a, b) => a - b);
         setTimeout(() => {
-            window.location.href = "Tela1.html";
+            window.location.href = "tela2.html";
         }, 1000);
     }
 }
 
 function armazenarNumeroBuscado(){
-    let entrada = Document.querySelector('#numero-procura');
+    let entrada = (document.querySelector('#numero-procura')).value;
     if(entrada){
         x = parseInt(entrada);
         setTimeout(() => {
@@ -43,13 +43,12 @@ function buscarNumero() {
 }
 
 function exibirResultado(){
-    // :D
-    let texto = Document.querySelector('#resultado');
+    let texto = document.querySelector('#resultado');
     let resultado = buscarNumero()
     if(resultado >= 0){
-        resultado.innerHTML(`O núumero foi encontrado na posição: ${resultado}`);
+        texto.innerHTML(`O número foi encontrado na posição: ${resultado}`);
     } else {
-        resultado.innerHTML('O número não foi encontrado.');
+        texto.innerHTML('O número inserido não foi encontrado.');
     }
     lista.length = 0;
     x = null;
