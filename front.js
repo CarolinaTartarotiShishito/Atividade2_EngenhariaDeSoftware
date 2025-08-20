@@ -2,6 +2,7 @@ let lista = new Array(8);
 let x = null;
 
 function armazenarNumeros() {
+    lista.length = 0;
     const n1 = parseInt((document.querySelector('#n1')).value);
     const n2 = parseInt((document.querySelector('#n2')).value);
     const n3 = parseInt((document.querySelector('#n3')).value);
@@ -12,11 +13,14 @@ function armazenarNumeros() {
     const n8 = parseInt((document.querySelector('#n8')).value);
 
     if(n1 && n2 && n3 && n4 && n5 && n6 && n7 && n8){
+        console.log('ola')
         lista.push([n1, n2, n3, n4, n5, n6, n7, n8]);
         lista.sort((a, b) => a - b);
         setTimeout(() => {
             window.location.href = "tela2.html";
         }, 1000);
+    } else{
+        console.log('erro')
     }
 }
 
@@ -43,12 +47,12 @@ function buscarNumero() {
 }
 
 function exibirResultado(){
-    let texto = document.querySelector('#resultado');
+    const texto = document.querySelector('#resultado');
     let resultado = buscarNumero()
     if(resultado >= 0){
-        texto.innerHTML(`O número foi encontrado na posição: ${resultado}`);
+        texto.innerHTML = `O número foi encontrado na posição: ${resultado}`;
     } else {
-        texto.innerHTML('O número inserido não foi encontrado.');
+        texto.innerHTML = 'O número inserido não foi encontrado.';
     }
     lista.length = 0;
     x = null;
